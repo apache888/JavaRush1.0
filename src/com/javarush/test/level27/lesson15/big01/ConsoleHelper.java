@@ -29,7 +29,12 @@ public class ConsoleHelper {
             if (dishToOrder.equalsIgnoreCase("exit")) {
                 break;
             }
-            dishes.add(Dish.valueOf(dishToOrder));
+            try {
+                dishes.add(Dish.valueOf(dishToOrder));
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println(dishToOrder + " is not detected");
+            }
         }
         return dishes;
     }
